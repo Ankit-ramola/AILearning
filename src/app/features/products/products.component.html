@@ -1,0 +1,26 @@
+<div *ngIf="isLoading" class="spinner">
+  Loading products...
+</div>
+<h1>{{finalRate()}}</h1>
+<input [formControl]="userName" appUppercase/>
+<button (click)="onSubmit()">Submit</button>
+<div *ngIf="isError">
+    <h1>{{errorMessage}}</h1>
+</div>
+<h1 [innerHTML]="arr">hii</h1>
+<script [src]="arr"></script>
+<table *ngIf="!isLoading && !isError" border="1" style="border-collapse: collapse;">
+    <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Price</th>
+    </tr>
+    <tr *ngFor="let product of products">
+        <td>
+            <mat-checkbox (change)="onRowSelect($event,product)" />
+        </td>
+        <td>{{product.id}}</td>
+        <td>{{product.title}}</td>
+        <td>{{product.price}}</td>
+    </tr>
+</table>

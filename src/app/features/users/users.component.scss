@@ -1,0 +1,11 @@
+.main{
+    display: flex;
+    flex-direction: row;
+    gap:50px
+}
+label{
+    display: block;
+}
+input , select{
+    margin-bottom: 10px;
+}
