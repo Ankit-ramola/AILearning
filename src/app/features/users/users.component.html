@@ -1,16 +1,4 @@
-    <!-- <h1>{{user}}</h1>
-    <button (click)="update()">update</button> -->
 <div class="main">
-  <table>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-    </tr>
-    <tr *ngFor="let user of finalArray">
-      <td>{{user.name}}</td>
-      <td>{{user.email}}</td>
-    </tr>
-  </table>
   <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
     <div>
       <label>Username</label>
