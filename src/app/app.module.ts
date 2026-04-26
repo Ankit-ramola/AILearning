@@ -19,6 +19,8 @@ import {MatButtonModule} from '@angular/material/button';
 import { ProductsComponent } from './features/products/products.component';
 import { StoreModule } from '@ngrx/store';
 import { UppercaseDirective } from './directives/uppercase.directive';
+import { CounterComponent } from './features/counter/counter.component';
+import { countReducer } from './store/user/user.reducer';
 
 
 @NgModule({
@@ -28,6 +30,7 @@ import { UppercaseDirective } from './directives/uppercase.directive';
     UsersComponent,
     ProductsComponent,
     UppercaseDirective,
+    CounterComponent
 
   ],
   imports: [
@@ -47,7 +50,7 @@ import { UppercaseDirective } from './directives/uppercase.directive';
     BrowserAnimationsModule,
     MatCheckboxModule,
     MatButtonModule,
-    StoreModule.forRoot({})
+    StoreModule.forRoot({count : countReducer})
   ],
   providers: [],
   bootstrap: [AppComponent],
