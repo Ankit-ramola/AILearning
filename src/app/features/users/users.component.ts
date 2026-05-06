@@ -1,7 +1,6 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { UserService } from './user.service';
 import { FormBuilder, Validators } from '@angular/forms';
-import { Observable } from 'rxjs';
 
 export type User = {
   name: string;
@@ -16,7 +15,6 @@ export type User = {
 export class UsersComponent implements OnInit {
 
   finalArray: User[] = [];
-  name: unknown;
   user = 'ankit';
   constructor(private userService: UserService, private cd: ChangeDetectorRef,
     private fb: FormBuilder
@@ -24,7 +22,6 @@ export class UsersComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUsers();
-    this.obs();
   }
   update() {
     this.user = 'zan';
@@ -57,18 +54,6 @@ export class UsersComponent implements OnInit {
   onSubmit() {
     console.log(this.registrationForm.value);
   }
-
-  obs(){
-  let obs = new Observable(observer=>{
-    observer.next(Math.random());
-  })
-
-  obs.subscribe(console.log)
-  obs.subscribe(console.log)
-
-  
-  }
-
   
 }
 

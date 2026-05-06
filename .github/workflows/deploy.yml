@@ -1,0 +1,29 @@
+name: Manual Deployment
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        type: choice
+        description: "Select environment"
+        required: true
+        options: [dev, qa, prod]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - run: npm ci
+      - run: npm run build
+
+      - name: Deploy to AWS S3
+        run: |
+          aws s3 sync dist/ s3://my-bucket-${{ inputs.environment }}/

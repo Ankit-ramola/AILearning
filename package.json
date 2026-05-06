@@ -7,6 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "test:ci": "ng test --watch=false --browsers=ChromeHeadless",
     "test:coverage": "ng test --code-coverage",
     "analyze": "ng build --configuration production --source-map && source-map-explorer 'dist/angular_onefive/**/*.js'"
   },
@@ -32,6 +33,7 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^16.2.16",
+    "@angular/cli": "^16.2.16",
     "@angular/compiler-cli": "^16.2.0",
     "@types/jasmine": "~4.3.0",
     "@types/tabulator-tables": "^6.2.11",
